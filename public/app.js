@@ -36,16 +36,18 @@ function setup() {
 	    facingMode: {
 	      exact: 'user'
 	    }
-	  };
+	  }
+	};
 } else {
 	constraints = {
-  video: {
-		width: {max: 640,},
-		height: {max: 480,},
-    facingMode: {
-      exact: 'environment'
-    }
-  };
+	  video: {
+			width: {max: 640,},
+			height: {max: 480,},
+	    facingMode: {
+	      exact: 'environment'
+	    }
+	  }
+	};
 };
 
 
