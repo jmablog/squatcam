@@ -28,8 +28,8 @@ function setup() {
 	video = createCapture(
 	{
   video: {
-		width: 640,
-		height: 480,
+		width: {max: 640,},
+		height: {max: 480,},
     facingMode: {
       exact: 'environment'
     }
