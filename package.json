@@ -8,7 +8,7 @@
 	},
 	"devDependencies": {},
 	"scripts": {
-		"build-css": "tailwindcss build src/style.css -o style.css"
+		"build-css": "tailwindcss build src/style.css -o public/style.css"
 	},
 	"repository": {
 		"type": "git",
