@@ -25,7 +25,15 @@ let knee, hip, ankle, kneeFlexion, dorsiflexion, hipFlexion, shoulder, anKnee, s
 function setup() {
 	let canvas = createCanvas(640, 480);
 	canvas.parent('app');
-	video = createCapture(VIDEO);
+	video = createCapture(
+	{
+  video: {
+    facingMode: {
+      exact: 'environment'
+    }
+  }
+}
+	);
 	video.size(width, height);
 
 	// Create a new poseNet method with a single detection
