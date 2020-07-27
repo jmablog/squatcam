@@ -15,7 +15,7 @@ let poseNet;
 let poses = [];
 let side = 'left';
 let camera = 'rear';
-let constraints;
+let constraints = {};
 
 let maxKneeFlexion = 180;
 let maxHipFlexion = 180;
@@ -28,7 +28,7 @@ function setup() {
 	let canvas = createCanvas(640, 480);
 	canvas.parent('app');
 	
-	if (camera === 'front') {
+	if (camera == 'front') {
 		constraints = {
  		 video: {
 			width: {max: 640,},
