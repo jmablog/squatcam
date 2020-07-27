@@ -14,7 +14,7 @@ let video;
 let poseNet;
 let poses = [];
 let side = 'left';
-let cam = 'rear';
+let camera = 'rear';
 let constraints;
 
 let maxKneeFlexion = 180;
@@ -123,29 +123,29 @@ function setup() {
 	textFont('Open Sans');
 	textSize(22);
 
-	button = createButton('<i class="fas fa-sync-alt"></i> Switch Sides');
-	button.parent('switchButtonContainer');
-	button.id('switchButton');
-	button.class(
+	button1 = createButton('<i class="fas fa-sync-alt"></i> Switch Sides');
+	button1.parent('switchButtonContainer');
+	button1.id('switchButton');
+	button1.class(
 		'rounded-full bg-white py-3 px-4 mx-3 shadow-lg hover:text-gray-900 border-2 border-white hover:border-gray-500'
 	);
-	button.mousePressed(switchSides);
+	button1.mousePressed(switchSides);
 
-	button = createButton('<i class="fas fa-camera"></i> Take Snapshot');
-	button.parent('saveButtonContainer');
-	button.id('saveButton');
-	button.class(
+	button2 = createButton('<i class="fas fa-camera"></i> Take Snapshot');
+	button2.parent('saveButtonContainer');
+	button2.id('saveButton');
+	button2.class(
 		'rounded-full bg-white py-3 px-4 mx-3 shadow-lg hover:text-gray-900 border-2 border-white hover:border-gray-500'
 	);
-	button.mousePressed(saveImage);
+	button2.mousePressed(saveImage);
 	
-	button = createButton('<i class="fas fa-sync-alt"></i> Switch Camera');
-	button.parent('cameraButtonContainer');
-	button.id('cameraButton');
-	button.class(
+	button3 = createButton('<i class="fas fa-sync-alt"></i> Switch Camera');
+	button3.parent('cameraButtonContainer');
+	button3.id('cameraButton');
+	button3.class(
 		'rounded-full bg-white py-3 px-4 mx-3 shadow-lg hover:text-gray-900 border-2 border-white hover:border-gray-500'
-		);
-		button.mousePressed(switchCam);
+	);
+	button3.mousePressed(switchCam);
 }
 
 function switchCam() {
