@@ -15,7 +15,6 @@ let poseNet;
 let poses = [];
 let side = 'left';
 let camera = 'rear';
-let constraints = {};
 
 let maxKneeFlexion = 180;
 let maxHipFlexion = 180;
@@ -28,17 +27,6 @@ function setup() {
 	let canvas = createCanvas(640, 480);
 	canvas.parent('app');
 	
-	if (camera == 'front') {
-		constraints = {
- 		 video: {
-			width: {max: 640,},
-			height: {max: 480,},
-	    facingMode: {
-	      exact: 'user'
-	    }
-	  }
-	};
-} else {
 	constraints = {
 	  video: {
 			width: {max: 640,},
@@ -48,7 +36,6 @@ function setup() {
 	    }
 	  }
 	};
-};
 
 
 	video = createCapture(constraints);
@@ -141,24 +128,24 @@ function setup() {
 	);
 	button2.mousePressed(saveImage);
 	
-	button3 = createButton('<i class="fas fa-sync-alt"></i> Switch Camera');
-	button3.parent('cameraButtonContainer');
-	button3.id('cameraButton');
-	button3.class(
-		'rounded-full bg-white py-3 px-4 mx-3 shadow-lg hover:text-gray-900 border-2 border-white hover:border-gray-500'
-	);
-	button3.mousePressed(switchCam);
+	// button3 = createButton('<i class="fas fa-sync-alt"></i> Switch Camera');
+	// button3.parent('cameraButtonContainer');
+	// button3.id('cameraButton');
+	// button3.class(
+	// 	'rounded-full bg-white py-3 px-4 mx-3 shadow-lg hover:text-gray-900 border-2 border-white hover:border-gray-500'
+	// );
+	// button3.mousePressed(switchCam);
 }
 
-function switchCam() {
-	switch (camera) {
-		case 'rear':
-			camera = 'front';
-			break;
-		case 'front':
-			side = 'rear';
-	}
-}
+// function switchCam() {
+// 	switch (camera) {
+// 		case 'rear':
+// 			camera = 'front';
+// 			break;
+// 		case 'front':
+// 			side = 'rear';
+// 	}
+// }
 
 function switchSides() {
 	switch (side) {
