@@ -204,6 +204,7 @@ function draw() {
 	textSize(12);
 	textAlign(CENTER, CENTER);
 	textStyle(BOLD);
+	textFont('sans-serif');
 	displaySide = side.toUpperCase();
 	text(displaySide, 45, 25);
 
