@@ -51,7 +51,8 @@ function setup() {
 };
 
 
-
+	video = createCapture(constraints);
+	video.size(width, height);
 
 	// Create a new poseNet method with a single detection
 	poseNet = ml5.poseNet(video, modelReady);
@@ -63,9 +64,6 @@ function setup() {
 	poseNet.on('pose', function(results) {
 		poses = results;
 
-		video = createCapture(constraints);
-		video.size(width, height);
-		
 		if (poses.length > 0) {
 			switch (side) {
 				case 'left':
