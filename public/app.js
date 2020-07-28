@@ -135,6 +135,14 @@ function setup() {
 	// 	'rounded-full bg-white py-3 px-4 mx-3 shadow-lg hover:text-gray-900 border-2 border-white hover:border-gray-500'
 	// );
 	// button3.mousePressed(switchCam);
+	
+	button4 = createButton('<i class="fas fa-sync-alt"></i> Reset');
+	button4.parent('resetButtonContainer');
+	button4.id('resetButton');
+	button4.class(
+		'rounded-full bg-white py-3 px-4 mx-3 shadow-lg hover:text-gray-900 border-2 border-white hover:border-gray-500'
+	);
+	button4.mousePressed(resetMax());
 }
 
 // function switchCam() {
