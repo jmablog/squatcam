@@ -26,17 +26,16 @@ let knee, hip, ankle, kneeFlexion, dorsiflexion, hipFlexion, shoulder, anKnee, s
 function setup() {
 	let canvas = createCanvas(640, 480);
 	canvas.parent('app');
-	
-	constraints = {
-	  video: {
-			width: {max: 640,},
-			height: {max: 480,},
-	    facingMode: {
-	      exact: 'environment'
-	    }
-	  }
-	};
 
+	constraints = {
+		video: {
+			width: { max: 640 },
+			height: { max: 480 },
+			facingMode: {
+				ideal: 'environment'
+			}
+		}
+	};
 
 	video = createCapture(constraints);
 	video.size(width, height);
@@ -116,7 +115,7 @@ function setup() {
 	button1.parent('switchButtonContainer');
 	button1.id('switchButton');
 	button1.class(
-		'rounded-full bg-white py-3 px-4 mx-3 shadow-lg hover:text-gray-900 border-2 border-white hover:border-gray-500'
+		'rounded-full bg-white py-3 px-5 mx-3 shadow-lg hover:text-gray-900 border-2 border-white hover:border-gray-500'
 	);
 	button1.mousePressed(switchSides);
 
@@ -124,10 +123,10 @@ function setup() {
 	button2.parent('saveButtonContainer');
 	button2.id('saveButton');
 	button2.class(
-		'rounded-full bg-white py-3 px-4 mx-3 shadow-lg hover:text-gray-900 border-2 border-white hover:border-gray-500'
+		'rounded-full bg-white py-3 px-5 mx-3 shadow-lg hover:text-gray-900 border-2 border-white hover:border-gray-500'
 	);
 	button2.mousePressed(saveImage);
-	
+
 	// button3 = createButton('<i class="fas fa-sync-alt"></i> Switch Camera');
 	// button3.parent('cameraButtonContainer');
 	// button3.id('cameraButton');
@@ -135,12 +134,12 @@ function setup() {
 	// 	'rounded-full bg-white py-3 px-4 mx-3 shadow-lg hover:text-gray-900 border-2 border-white hover:border-gray-500'
 	// );
 	// button3.mousePressed(switchCam);
-	
+
 	button4 = createButton('<i class="fas fa-sync-alt"></i> Reset');
 	button4.parent('resetButtonContainer');
 	button4.id('resetButton');
 	button4.class(
-		'rounded-full bg-white py-3 px-4 mx-3 shadow-lg hover:text-gray-900 border-2 border-white hover:border-gray-500'
+		'rounded-full py-1 px-4 hover:text-gray-900 font-semibold text-sm border-2 border-gray-500 hover:border-gray-500 hover:bg-white shadow-md'
 	);
 	button4.mousePressed(resetMax);
 }
@@ -191,7 +190,22 @@ function modelReady() {
 }
 
 function draw() {
+	clear();
 	image(video, 0, 0, width, height);
+
+	fill('white');
+	strokeWeight(0);
+	stroke('#A0AEC0');
+	rectMode(CENTER);
+	rect(45, 24, 60, 25, 15);
+
+	fill('#4A5568');
+	noStroke();
+	textSize(12);
+	textAlign(CENTER, CENTER);
+	textStyle(BOLD);
+	displaySide = side.toUpperCase();
+	text(displaySide, 45, 25);
 
 	// We can call both functions to draw all keypoints and the skeletons
 	drawKeypoints();
@@ -256,8 +270,11 @@ function drawSkeleton() {
 		for (let j = 0; j < skeleton.length; j++) {
 			let partA = skeleton[j][0];
 			let partB = skeleton[j][1];
+			push();
 			stroke('rgba(255,255,255, 0.5)');
+			strokeWeight(2);
 			line(partA.position.x, partA.position.y, partB.position.x, partB.position.y);
+			pop();
 		}
 	}
 }
