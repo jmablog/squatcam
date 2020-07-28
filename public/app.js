@@ -142,7 +142,7 @@ function setup() {
 	button4.class(
 		'rounded-full bg-white py-3 px-4 mx-3 shadow-lg hover:text-gray-900 border-2 border-white hover:border-gray-500'
 	);
-	button4.mousePressed(resetMax());
+	button4.mousePressed(resetMax);
 }
 
 // function switchCam() {
